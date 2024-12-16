@@ -33,6 +33,23 @@ const {
             interaction.reply({ ephemeral: true, content: `${Emojis.info} **/info**\n\nView information about this bot.`})
           }
         }
+
+        if (interaction.customId === "pay-bail") {
+          let prisonEffect = profile.effects.find(obj => obj.type === "Prison")
+          if (!prisonEffect) {
+            return interaction.reply({ content: `You're not in prison currently.`, ephemeral: true })
+          }
+          let bailCost = prisonEffect.bailCost
+          if (profile.currencies.cash >= bailCost) {
+            profile.currencies.cash -= bailCost
+            let prisonEffectIndex = profile.effects.findIndex(obj => obj.type === "Prison")
+            profile.effects.splice(prisonEffectIndex, 1)
+            saveProfiles()
+            interaction.reply({ content: `Successfully paid the bail! :dollar: ${bailCost} has been debited from your account.`})
+          } else {
+            interaction.reply({ content: `Your bail costs :dollar: ${bailCost}, you only have :dollar: ${profile.currencies.cash}.`, ephemeral: true})
+          }
+        }
       }
 
       // If not a slash command return

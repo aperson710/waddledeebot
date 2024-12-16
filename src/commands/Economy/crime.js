@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder, Embed} = require("discord.js")
+const { SlashCommandBuilder, EmbedBuilder, ButtonBuilder, ActionRowBuilder} = require("discord.js")
 const { getProfile, saveProfiles, addXP} = require("../../data/profilesControl")
 const { Emojis, getRandomNumber } = require("../../mods")
 
@@ -12,7 +12,27 @@ module.exports = {
         let profile = getProfile(interaction.user.id)
         let chance = getRandomNumber(1, 100)
 
-        if (chance <= 70) {
+        if (chance <= 40) {
+            const jailEffect = {
+                type: "Prison",
+                display: {
+                    name: "In Prison",
+                    desc: "Nice one, you've landed yourself in prison. Wait out your time."
+                },
+                bailCost: 500,
+                endsAt: Date.now() + getRandomNumber(ms("5m"), ms("1h"))
+            }
+            profile.effects.push(jailEffect)
+            saveProfiles()
+
+            const bailButton = new ButtonBuilder()
+                .setLabel("Pay the bail")
+                .setEmoji("🚪")
+                .setCustomId("pay-bail")
+
+            
+            return interaction.reply({ content: `Eheu! You landed yourself in prison! You'll be released <t:${Math.round(jailEffect.endsAt / 1000)}:R>`})
+        } else if (chance <= 70) {
             return interaction.reply(`You didn't earn any moneys this time.`)
         }
 

@@ -55,7 +55,6 @@ function createCode(codeFor, variant) {
       uses: 1,
       unlimited: false,
       cash: 2500,
-      coupons: 750,
       gems: 100
     }; 
   }
