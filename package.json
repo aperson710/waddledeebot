@@ -1,0 +1,19 @@
+{
+  "name": "waddledeebot",
+  "version": "0.1.0",
+  "main": "src/index.js",
+  "scripts": {
+    "server": "node ."
+  },
+  "keywords": [],
+  "author": "A_Person-exe",
+  "license": "..",
+  "description": "",
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.7",
+    "mathjs": "^14.0.0",
+    "ms": "^2.1.3",
+    "prettier": "^3.4.2"
+  }
+}

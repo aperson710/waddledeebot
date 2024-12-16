@@ -1,0 +1,39 @@
+{
+  "name": "Waddle Dee",
+  "version": "prerelease 0.4, 05/10/2024",
+  "blacklist": [
+    {
+      "user": "1281768308106072079",
+      "reason": "Cool down on the chat commands and then maybe you can use it again"
+    }
+  ],
+  "webhookPrivacy": [],
+  "codes": [
+    {
+      "key": "AVt8IbuGM0KcUA",
+      "rewards": "Plus",
+      "validityType": "Unlimited",
+      "membershipType": "Member",
+      "uses": 1,
+      "unlimited": false
+    }
+  ],
+  "grindpass": {
+    "name": "Prerelease Season",
+    "endsAt": 1,
+    "normalTiers": [
+      {
+        "level": 1,
+        "rewards": [
+          {
+            "type": "currency",
+            "cname": "cash",
+            "value": 100,
+            "displayName": "Cash",
+            "emoji": "💵"
+          }
+        ]
+      }
+    ]
+  }
+}
