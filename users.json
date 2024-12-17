@@ -6,24 +6,34 @@
             "globalName": "A_Person-exe"
         },
         "currencies": {
-            "cash": 1057,
+            "cash": 2108,
             "gems": 0
         },
         "plus": {
             "active": true
         },
         "multiplier": 1,
-        "effects": [],
+        "effects": [
+            {
+                "type": "Prison",
+                "display": {
+                    "name": "In Prison",
+                    "desc": "Nice one, you've landed yourself in prison. Wait out your time."
+                },
+                "bailCost": 667,
+                "endsAt": 1734468804049
+            }
+        ],
         "rank": {
             "level": 1,
-            "xp": 41,
+            "xp": 179,
             "rxp": 200,
-            "allxp": 141
+            "allxp": 279
         },
         "cooldowns": {
-            "work": 1734467129053,
-            "beg": 1734467012614,
-            "crime": 1734467029609
+            "work": 1734468386621,
+            "beg": 1734468356675,
+            "crime": 1734468387476
         },
         "inventory": []
     }

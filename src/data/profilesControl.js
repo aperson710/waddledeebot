@@ -59,7 +59,7 @@ function createProfile(userId, username, globalName) {
       },
       currencies: {
         cash: 100,
-        gems: 0
+        gems: 0,
       },
       plus: {
         active: true,
@@ -85,9 +85,9 @@ function createProfile(userId, username, globalName) {
     console.log(
       `users.json update | ${formattedDate} | A profile for ${username} (${userId}) was created`
     );
-    return true
+    return true;
   } else {
-    return false
+    return false;
   }
 }
 
@@ -128,9 +128,7 @@ const getLeaderboardPosition = (userId) => {
   };
 };
 
-function awardAchievement(userId, achievementName) {
-
-}
+function awardAchievement(userId, achievementName) {}
 
 function profileOnCooldown(userId, commandName, cooldownTime) {
   let profile = getProfile(userId);
@@ -170,7 +168,7 @@ async function addXP(interaction, value) {
     initialLevel: profile.rank.level,
     finalLevel: profile.rank.level,
     cash: 0,
-    gems: 0
+    gems: 0,
   };
 
   while (profile.rank.xp > profile.rank.rxp) {
@@ -198,15 +196,16 @@ async function addXP(interaction, value) {
 }
 
 let itemsList = [
-  { 
-    name: `Escape Tool`,
-    battleItem: false,
+  {
+    name: "Ethereum",
+    desc: "Ethereum is a decentralized blockchain with smart contract functionality. Ether/ETH is the native cryptocurrency of the platform. Among cryptocurrencies, ether is second only to bitcoin in market capitalization. It is open-source software.\n\nBut in this economy, using an ETH will grant you $2000",
+    type: "Consumable",
+    emoji: Emojis.Items.Ethereum,
     quantity: 1,
-    type: `PrisonEscape Item`,
-    desc: `2D hammer that seems to have the capability of allowing one to escape a prison. It doesn't always work, though`,
-    chance: 50
-  }
-]
+    grants: [{ type: "Currency", currency: "cash", value: 2000 }],
+    grantMessage: "You gained :dollar: 2000 from the ETH."
+  },
+];
 
 let achievementsList = [
   {
@@ -219,8 +218,8 @@ let achievementsList = [
         type: "Currency",
         cname: "coins",
         value: 500,
-      }
-    ]
+      },
+    ],
   },
   {
     name: `Out of the Box`,
@@ -237,32 +236,27 @@ let achievementsList = [
         type: "Item",
         name: "Escape Tool",
         quantity: 1,
-      }
-    ]
-  }
-]
-
-
+      },
+    ],
+  },
+];
 
 function addItemToInventory(userId, item) {
-  let profile = getProfile(userId)
+  let profile = getProfile(userId);
 
-  let selectedItem = itemsList.find(obj => obj.name === item)
+  let selectedItem = itemsList.find((obj) => obj.name === item);
 
-  if (!selectedItem) return false
+  if (!selectedItem) return false;
 
-  let itemInInventory = profile.inventory.find(obj => obj.name === item)
+  let itemInInventory = profile.inventory.find((obj) => obj.name === item);
   if (itemInInventory) {
-    itemInInventory.quantity += 1
+    itemInInventory.quantity += 1;
   } else {
-    profile.inventory.push(selectedItem)
+    profile.inventory.push(selectedItem);
   }
 
-  saveProfiles()
-  return true
-
-  
-
+  saveProfiles();
+  return true;
 }
 
 function getRandomNumber(x, y) {
@@ -281,5 +275,5 @@ module.exports = {
   getLeaderboardPosition,
   getRandomNumber,
   itemsList,
-  addItemToInventory
+  addItemToInventory,
 };

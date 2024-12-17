@@ -21,7 +21,7 @@ module.exports = {
                     name: "In Prison",
                     desc: "Nice one, you've landed yourself in prison. Wait out your time."
                 },
-                bailCost: 500,
+                bailCost: getRandomNumber(100, 1000),
                 endsAt: Date.now() + getRandomNumber(ms("5m"), ms("1h"))
             }
             profile.effects.push(jailEffect)

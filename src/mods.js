@@ -1,11 +1,16 @@
-const { EmbedBuilder } = require("discord.js")
+const { EmbedBuilder } = require("discord.js");
 
 const Emojis = {
-  yes: "<:yes:1314660982978777099>",
-  no: "<:no:1314660999705661481>",
-  question: "<:question:1314661019322421288>",
-  warning: "<:warning:1314661054952767538>",
-  info: "<:info:1314661035818352672>",
+  Messages: {
+    yes: "<:yes:1314660982978777099>",
+    no: "<:no:1314660999705661481>",
+    question: "<:question:1314661019322421288>",
+    warning: "<:warning:1314661054952767538>",
+    info: "<:info:1314661035818352672>",
+  },
+  Items: {
+    Ethereum: "<:eth:1318681046266544200>"
+  }
 };
 
 function generateRandomString(length) {
@@ -25,8 +30,6 @@ function getRandomNumber(x, y) {
   return randomNumber + x;
 }
 
-const helpMenuEmbeds = [
-  { name: "help", embed: new EmbedBuilder()}
-]
+
 
 module.exports = { Emojis, generateRandomString, getRandomNumber };

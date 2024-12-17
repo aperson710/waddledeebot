@@ -24,7 +24,23 @@ module.exports = {
         new StringSelectMenuOptionBuilder()
             .setLabel(`/info`)
             .setDescription(`View some details about this bot.`)
-            .setValue("info")
+            .setValue("info"),
+        new StringSelectMenuOptionBuilder()
+            .setLabel(`/work`)
+            .setDescription(`Work a shift for some moneys.`)
+            .setValue("work"),
+        new StringSelectMenuOptionBuilder()
+            .setLabel(`/beg`)
+            .setDescription(`Attempt to ask for moneys.`)
+            .setValue("beg"),
+        new StringSelectMenuOptionBuilder()
+            .setLabel(`/crime`)
+            .setDescription(`Do illegals for high moneys but with high risk.`)
+            .setValue("crime"),
+        new StringSelectMenuOptionBuilder()
+            .setLabel(`/profile`)
+            .setDescription(`View user profiles.`)
+            .setValue("profile")
       );
 
 

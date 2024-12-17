@@ -37,6 +37,26 @@ module.exports = {
             ephemeral: true,
             content: `${Emojis.info} **/info**\n\nView information about this bot.`,
           });
+        } else if (interaction.values[0] === "profile") {
+          interaction.reply({
+            ephemeral: true,
+            content: `${Emojis.info} **/profile**\n\nView a user's profile. Has 3 subcommands:\n\n**/profile balance** > View a user's balance\n**/profile rank** > View a user's level and XP, and their position in the leaderboard\n**/profile view** > View a user's entire profile, including both their balance and rank.`,
+          });
+        } else if (interaction.values[0] === "work") {
+          interaction.reply({
+            ephemeral: true,
+            content: `${Emojis.info} **/work**\n\nWork a shift to get some money. \n\nCooldown: 45s \n\n${Emojis.warning} Cannot be executed while in prison.`,
+          });
+        } else if (interaction.values[0] === "crime") {
+          interaction.reply({
+            ephemeral: true,
+            content: `${Emojis.info} **/crime**\n\nCommit theoretical crimes in attempt to get higher withdrawals but with risk.\n\n${Emojis.warning} This command has a chance to give you the **Prison** effect, preventing you from running most commands. There are several ways to escape this however \n\nCooldown: 90s\n\n${Emojis.warning} Cannot be executed while in prison.`,
+          });
+        } else if (interaction.values[0] === "beg") {
+          interaction.reply({
+            ephemeral: true,
+            content: `${Emojis.info} **/beg**\n\nBeg to attempt getting a short amount of money with a lower cooldown. \n\nCooldown: 20s \n\n${Emojis.warning} Cannot be executed while in prison.`,
+          });
         }
       }
 
@@ -126,7 +146,7 @@ module.exports = {
       const row = new ActionRowBuilder().addComponents(bailButton);
 
       return interaction.reply({
-        content: `You're in prison, you can't execute this command. You can pay ${inPrison.bailCost} to be let out.`,
+        content: `You're in prison, you can't execute this command. You'll be released <t:${Math.round(inPrison.endsAt / 1000)}:R>, or you can pay ${inPrison.bailCost} to be let out.`,
         components: [row],
         ephemeral: true,
       });
