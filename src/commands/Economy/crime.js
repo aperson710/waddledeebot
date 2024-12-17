@@ -1,8 +1,10 @@
-const { SlashCommandBuilder, EmbedBuilder, ButtonBuilder, ActionRowBuilder} = require("discord.js")
+const { SlashCommandBuilder, EmbedBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle} = require("discord.js")
 const { getProfile, saveProfiles, addXP} = require("../../data/profilesControl")
 const { Emojis, getRandomNumber } = require("../../mods")
+const ms = require("ms")
 
 module.exports = {
+    executableWhileImprisoned: false,
     cooldown: "90s",
     data: new SlashCommandBuilder()
         .setName("crime")
@@ -29,9 +31,12 @@ module.exports = {
                 .setLabel("Pay the bail")
                 .setEmoji("🚪")
                 .setCustomId("pay-bail")
+                .setStyle(ButtonStyle.Primary)
+
+            const row = new ActionRowBuilder().addComponents(bailButton)
 
             
-            return interaction.reply({ content: `Eheu! You landed yourself in prison! You'll be released <t:${Math.round(jailEffect.endsAt / 1000)}:R>`})
+            return interaction.reply({ content: `You landed yourself in prison! You'll be released <t:${Math.round(jailEffect.endsAt / 1000)}:R> \n\nAlternatively, you can pay ${jailEffect.bailCost} to be let out.`, components: [row], ephemeral: true})
         } else if (chance <= 70) {
             return interaction.reply(`You didn't earn any moneys this time.`)
         }
@@ -52,7 +57,7 @@ module.exports = {
             .setDescription(`You successfully did some illegals and earned 💵 ${amt}.`)
             .setTimestamp()
             .setColor('DarkRed')
-            .setFooter({ text: `You earned 25XP`})
+            .setFooter({ text: `You earned 25XP`, iconURL: interaction.user.displayAvatarURL()})
 
         interaction.reply({ embeds: [embed]})
     }

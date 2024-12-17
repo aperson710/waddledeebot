@@ -6,7 +6,7 @@
             "globalName": "A_Person-exe"
         },
         "currencies": {
-            "cash": 1194,
+            "cash": 1057,
             "gems": 0
         },
         "plus": {
@@ -15,15 +15,15 @@
         "multiplier": 1,
         "effects": [],
         "rank": {
-            "level": 0,
-            "xp": 85,
-            "rxp": 100,
-            "allxp": 85
+            "level": 1,
+            "xp": 41,
+            "rxp": 200,
+            "allxp": 141
         },
         "cooldowns": {
-            "work": 1734371226198,
-            "beg": 1734372113371,
-            "crime": 1734372185216
+            "work": 1734467129053,
+            "beg": 1734467012614,
+            "crime": 1734467029609
         },
         "inventory": []
     }

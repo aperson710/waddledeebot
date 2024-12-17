@@ -3,6 +3,7 @@ const { getProfile, saveProfiles, addXP} = require("../../data/profilesControl")
 const { Emojis, getRandomNumber } = require("../../mods")
 
 module.exports = {
+    executableWhileImprisoned: false,
     cooldown: "20s",
     data: new SlashCommandBuilder()
         .setName("beg")
@@ -32,7 +33,7 @@ module.exports = {
             .setDescription(`You asked nicely and earned 💵 ${amt}.`)
             .setTimestamp()
             .setColor("Purple")
-            .setFooter({ text: `You earned 3XP`})
+            .setFooter({ text: `You earned 3XP`, iconURL: interaction.user.displayAvatarURL()})
 
         interaction.reply({ embeds: [embed]})
     }
